@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Drink from './Drink';
 import './App.css';
-import coke from '/Users/marsyaputra22/Desktop/sem 1/program design meethods/vending machine/vending-mchn/src/coke.jpg'
-import sprite from '/Users/marsyaputra22/Desktop/sem 1/program design meethods/vending machine/vending-mchn/src/sprite.jpg'
-import teh from '/Users/marsyaputra22/Desktop/sem 1/program design meethods/vending machine/vending-mchn/src/teh-pucuk.jpg'
+import coke from './coke.jpg'
+import sprite from './sprite.jpg'
+import teh from './teh-pucuk.jpg'
 
 function VendingMachine() {
    const startMachine = () => {
