@@ -10,9 +10,9 @@ function VendingMachine() {
       setIsStarted(true);
    };
    const [drinks] = useState([
-      { name: 'Coke', price: 2, image: coke },
-      { name: 'Sprite', price: 1.5, image: sprite },
-      { name: 'Teh Pucuk', price: 1.2, image: teh },
+      { name: 'Coke', price: 2000, image: coke },
+      { name: 'Sprite', price: 1500, image: sprite },
+      { name: 'Teh Pucuk', price: 1200, image: teh },
   ]);
    const [isStarted, setIsStarted] = useState(false);
     const [selectedDrink, setSelectedDrink] = useState(null);
@@ -31,11 +31,34 @@ function VendingMachine() {
     const handlePayment = () => {
         const change = calculateChange();
         if (change > 0) {
-            alert(`Here is your change: $${change}`);
+            let changeAsCoins = changeToCoins(change);
+            alert(`Here is your change: Rp.${changeAsCoins}`);
         } else {
             alert('Payment not accepted. Please enter a higher amount.');
         }
     };
+    const changeToCoins = (change) => {
+        let coinChange = [
+            { name: '000', value: 1000 },
+            { name: 'Rupiah 2000', value: 2000 },
+            { name: 'Rupiah 5000', value: 5000 },
+            { name: 'Koin 500', value: 500 },
+            { name: 'koin 100', value: 100 },
+            { name: 'koin 200', value: 200 },
+            
+        ];
+        let result = [];
+        coinChange.forEach((coin) => {
+            let coinCount = Math.floor(change / coin.value);
+            if (coinCount > 0) {
+                result.push(`${coinCount} ${coin.name}${coinCount > 1 ? '' : ''}`);
+                change -= coinCount * coin.value;
+            }
+        });
+
+        return result.join(', ');
+    };
+
 
     if (!isStarted) {
       return (
@@ -58,7 +81,7 @@ function VendingMachine() {
           {selectedDrink && (
               <div style={{padding:"65px"}} className="payment-container mt-6">
                  <h2 className="text-xl font-semibold mb-4">Selected Drink: {selectedDrink.name}</h2>
-                 <h3 className="text-lg font-medium mb-4">Price: ${selectedDrink.price}</h3>
+                 <h3 className="text-lg font-medium mb-4">Price: Rp.{selectedDrink.price}</h3>
                  <h3 className="text-lg font-medium mb-4">ENTER YOUR MONEY</h3>
                  <input type="number" value={amountPaid} onChange={(e) => setAmountPaid(e.target.value)} className="w-full p-2 border border-gray-300 rounded-md mb-4" />
                  <button onClick={handlePayment} className="bg-gray-900 text-white px-6 py- rounded-md">Buy</button>
