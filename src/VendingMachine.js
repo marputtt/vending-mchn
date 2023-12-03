@@ -32,20 +32,24 @@ function VendingMachine() {
         const change = calculateChange();
         if (change > 0) {
             let changeAsCoins = changeToCoins(change);
-            alert(`Here is your change: Rp.${changeAsCoins}`);
+            alert(`Here is your change: ${changeAsCoins}`);
         } else {
             alert('Payment not accepted. Please enter a higher amount.');
         }
     };
     const changeToCoins = (change) => {
         let coinChange = [
-            { name: '000', value: 1000 },
-            { name: 'Rupiah 2000', value: 2000 },
-            { name: 'Rupiah 5000', value: 5000 },
+            { name: 'Rp.100.000', value: 100000 },
+            { name: 'Rp.50.000', value: 50000 },
+            { name: 'Rp.20.000', value: 20000 },
+            { name: 'Rp.10.000', value: 10000 },
+            { name: 'Rp.5000', value: 5000 },
+            { name: 'Rp.2000', value: 2000 },
+            { name: 'Rp.1000', value: 1000 },
             { name: 'Koin 500', value: 500 },
-            { name: 'koin 100', value: 100 },
             { name: 'koin 200', value: 200 },
-            
+            { name: 'koin 100', value: 100 },
+  
         ];
         let result = [];
         coinChange.forEach((coin) => {
