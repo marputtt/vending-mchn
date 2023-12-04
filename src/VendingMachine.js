@@ -29,12 +29,17 @@ function VendingMachine() {
     };
 
     const handlePayment = () => {
-        const change = calculateChange();
-        if (change > 0) {
-            let changeAsCoins = changeToCoins(change);
-            alert(`Here is your change: ${changeAsCoins}`);
-        } else {
+        if (amountPaid < selectedDrink.price) {
             alert('Payment not accepted. Please enter a higher amount.');
+        }
+        else {
+            const change = calculateChange();
+            if (change >= 0) {
+                const changeAsCoins = changeToCoins(change);
+                const changeMessage = change === 0 ? 'No Change' : `Here is your change: ${changeAsCoins}`;
+                alert(changeMessage);
+            }
+           
         }
     };
     const changeToCoins = (change) => {
