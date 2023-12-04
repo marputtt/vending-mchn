@@ -73,7 +73,7 @@ function VendingMachine() {
       return (
          <div style={{display: "flex", justifyContent:"center", alignItems:"center", minHeight:"100vh", position: "relative"}} className="machine">
         <div  className="vend-container flex items-center justify-center  ">
-          <button style={{fontSize:"100px", borderRadius:"50px"}} onClick={startMachine} className="bg-blue-600 text-white px-6 py-3 rounded-md">Get Started</button>
+          <button style={{fontSize:"100px", borderRadius:"50px"}} onClick={startMachine} className="bg-blue-700 text-white px-6 py-3 rounded-md">Get Started</button>
         </div> 
         </div> 
       );
