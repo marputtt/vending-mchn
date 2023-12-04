@@ -72,15 +72,21 @@ function VendingMachine() {
     if (!isStarted) {
       return (
          <div style={{display: "flex", justifyContent:"center", alignItems:"center", minHeight:"100vh", position: "relative"}} className="machine">
-        <div  className="vend-container flex items-center justify-center h-screen bg-gradient-to-r from-indigo-500 to-blue-600">
+        <div  className="vend-container flex items-center justify-center  bg-gradient-to-r from-indigo-500 to-blue-600">
           <button style={{fontSize:"100px", borderRadius:"50px"}} onClick={startMachine} className="bg-blue-600 text-white px-6 py-3 rounded-md">Get Started</button>
         </div> 
         </div> 
       );
    }
+   const myStyle = {
+    backgroundImage: `url(${coke})`,
+    
+    backgroundSize: "inherit",
+  
+};
     return (
-      <div className="vend-container flex items-center justify-center h-screen bg-gradient-to-r from-indigo-500 to-blue-600">
-      <div className="vending-machine bg-white rounded-lg shadow-lg p-8 text-center">
+      <div style={myStyle} className="vend-container bg-blue flex items-center justify-center h-screen ">
+      <div className="vending-machine bg-white rounded-lg shadow-2xl p-8 text-center">
           <h1 className="text-2xl font-bold mb-6">Welcome to the Vending Machine</h1>
           <div className="drinks-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {drinks.map((drink, index) => (
